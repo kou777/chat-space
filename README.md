@@ -19,7 +19,7 @@ belongs_to :user
 ### Association
  has_many :groups, through: :members
  has_many :members
- has_many :messsages
+ has_many :messages
 
 ## groupsテーブル
 |Column|Type|Options|
