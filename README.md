@@ -5,7 +5,7 @@
 |image|string|null: true, foreign_key: false|
 |group|references|null: false, foreign_key: true|
 |user|references|null: false, foreign_key: true|
-|timestamps|timestamp|
+
 
 ### Association
 belongs_to :group
@@ -15,22 +15,21 @@ belongs_to :user
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, index: true|
-|email|string|null: false, foreign_key: false, unique: true|
-|timestamps|timestamp|
 
 ### Association
  has_many :groups, through: :members
  has_many :members
+ has_many :messsages
 
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|timestamps|timestamp|
 
 ### Association
  has_many :users, through: :members
  has_many :members
+ has_many :messages
 
 ## membersテーブル
 |Column|Type|Options|
