@@ -1,10 +1,10 @@
-.chat{
+.chat {
   height: calc(100% - 101px);
   width: calc(100vw - 300px);
   position: absolute;
   min-width: 300px;
   left: 300px;
-  .chat__header{
+  &__header {
    border:solid 2px #eeeeee;
    position: relative;
     h2{
@@ -30,7 +30,7 @@
     }
 
   }
-  .chat__messages{
+  &__messages {
     height: 100%;
     background-color: #F8F8FF;
     padding :6px 0 0 40px;
@@ -54,7 +54,7 @@
       }
     }
   }
-  .chat__fotter{
+  &__fotter {
     background-color: gray;
     position: relative;
 
@@ -89,6 +89,6 @@
   }
 }
 
-body{
+body {
   height:  100vh;
 }

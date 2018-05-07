@@ -1,8 +1,8 @@
-sidebar {
+.sidebar {
   height: 100%;
   width: 300px;
   float: left;
-  .sidebar__user{
+  .sidebar__user {
     height: 100px;
     background-color: #253141;
     .sidebar__user-name {
@@ -13,26 +13,26 @@ sidebar {
       font-weight: bold;
       padding-left: 20px;
     }
-    .sidebar__edit{
+    .sidebar__edit {
       float:right;
       line-height: 100px;
       padding-right: 10px;
-      .av__edit__link{
+      .av__edit__link {
          color: #ffffff;
       }
 
     }
-    .sidebar__cog{
+    .sidebar__cog {
       float: right;
       line-height: 100px;
       padding-right: 10px;
-      .av__cog__link{
+      .av__cog__link {
         color: #ffffff;
       }
     }
    }
 
-   .sidebar__group{
+   .sidebar__group {
     height:100%;
     padding-left: 20px;
      background-color: #2f3e51;
