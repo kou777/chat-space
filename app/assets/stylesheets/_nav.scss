@@ -1,17 +1,9 @@
 nav {
   width: 300px;
-  height: 100%;
   float: left;
   .nav__user{
     height: 100px;
     background-color: #253141;
-    font-weight: bold ;
-    font-size:16px;
-    color: #ffffff;
-    text-align: center;
-    line-height: 100px;
-    border:solid 2px #eeeeee;
-   }
     .ul__name {
       float:left;
       line-height: 100px;
@@ -53,4 +45,5 @@ nav {
          padding-bottom: 20px;
        }
    }
+}
 

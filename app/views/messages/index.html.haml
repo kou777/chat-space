@@ -24,6 +24,29 @@
       = render partial: "group", locals: { group_name: "神", message: "sample"}
       = render partial: "group", locals: { group_name: "aaaaaaa", message: "まだメッセージはありません"}
       = render partial: "group", locals: { group_name: "sampleグループ", message: "まだメッセージはありません"}
+  .chat
+    .chat__header
+      %h2 sampleグループ
+      %p ryousuke maehira
+      %div edit
+
+    .chat__content
+      = render partial: "content", locals: {name: "ryousuke maehira", date: "2016/10/02 06:27:07", message: "なるほど"}
+
+      = render partial: "content", locals: {name: "ryousuke maehira", date: "2016/10/02 06:27:14", message: "水色きれい"}
+
+      = render partial: "content", locals: {name: "ryousuke maehira", date: "2016/10/02 06:29:07", message: "command Enterで送信したい感ある"}
+
+      = render partial: "content", locals: {name: "ryousuke maehira", date: "2016/10/02 06:30:07", message: "お腹すいた"}
+
+    .chat__fotter
+      %form
+        %input{type: "text",class: "chat__fotter__text", placeholder: "type a message"}
+        %label
+          %span.chat__fotter__icon
+            =fa_icon "image"
+          %input{type: "file", class: "chat__fotter__filesend"}
+          %input{type: "submit",class: "chat__fotter__submit", value:"send"}
 
 
 
