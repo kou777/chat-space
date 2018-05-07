@@ -1,36 +1,36 @@
-nav {
+sidebar {
   width: 300px;
   float: left;
-  .nav__user{
+  .sidebar__user{
     height: 100px;
     background-color: #253141;
-    .ul__name {
+    .av__user-name {
       float:left;
       line-height: 100px;
       color: #ffffff;
       font-size: 16px;
       font-weight: bold;
     }
-    .ul__edit{
+    .av__edit{
       float:right;
       line-height: 100px;
       padding-right: 10px;
-      .ul__edit__link{
+      .av__edit__link{
          color: #ffffff;
       }
 
     }
-    .ul__cog{
+    .av__cog{
       float: right;
       line-height: 100px;
       padding-right: 10px;
-      .ul__cog__link{
+      .av__cog__link{
         color: #ffffff;
       }
     }
    }
 
-   .nav__group{
+   .sidebar__group{
     height:585px;
      background-color: #2f3e51;
        h2{
