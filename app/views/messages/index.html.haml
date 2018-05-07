@@ -1,10 +1,4 @@
-!!!
-%html{lang: "ja"}
-  %head
-    %meta{charset: "utf-8"}
-      = stylesheet_link_tag "application.scss"
-
-  %body
+%body
 
   %header
 
@@ -21,23 +15,23 @@
           =link_to 'https://qiita.com/trend', class: "ul__cog__link", method: :get do
             =fa_icon "cog"
     .nav__group
-      = render partial: "group", locals: { group_name: "神", message: "sample"}
-      = render partial: "group", locals: { group_name: "aaaaaaa", message: "まだメッセージはありません"}
-      = render partial: "group", locals: { group_name: "sampleグループ", message: "まだメッセージはありません"}
+      = render "group", { group_name: "神", message: "sample"}
+      = render "group", { group_name: "aaaaaaa", message: "まだメッセージはありません"}
+      = render "group", { group_name: "sampleグループ", message: "まだメッセージはありません"}
   .chat
     .chat__header
       %h2 sampleグループ
       %p ryousuke maehira
-      %div edit
+      .edit edit
 
     .chat__content
-      = render partial: "content", locals: {name: "ryousuke maehira", date: "2016/10/02 06:27:07", message: "なるほど"}
+      = render "content", {name: "ryousuke maehira", date: "2016/10/02 06:27:07", message: "なるほど"}
 
-      = render partial: "content", locals: {name: "ryousuke maehira", date: "2016/10/02 06:27:14", message: "水色きれい"}
+      = render "content", {name: "ryousuke maehira", date: "2016/10/02 06:27:14", message: "水色きれい"}
 
-      = render partial: "content", locals: {name: "ryousuke maehira", date: "2016/10/02 06:29:07", message: "command Enterで送信したい感ある"}
+      = render "content", {name: "ryousuke maehira", date: "2016/10/02 06:29:07", message: "command Enterで送信したい感ある"}
 
-      = render partial: "content", locals: {name: "ryousuke maehira", date: "2016/10/02 06:30:07", message: "お腹すいた"}
+      = render "content", {name: "ryousuke maehira", date: "2016/10/02 06:30:07", message: "お腹すいた"}
 
     .chat__fotter
       %form
