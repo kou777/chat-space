@@ -5,7 +5,7 @@
     %p チャットグループが作成されました
 
   %sidebar
-    = render :partial => "shared/sidebar"
+    = render "shared/sidebar"
   .chat
     .chat__header
       %h2 sampleグループ
@@ -13,7 +13,7 @@
       .edit edit
 
     .chat__messages
-      = render :partial => "message"
+      = render "message"
 
     .chat__fotter
       %form
@@ -23,8 +23,3 @@
             =fa_icon "image"
           %input{type: "file", class: "chat__fotter__filesend"}
           %input{type: "submit",class: "chat__fotter__submit", value:"send"}
-
-
-
-
-

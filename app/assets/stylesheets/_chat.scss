@@ -60,22 +60,22 @@
     position: relative;
 
 
-    .chat__fotter__text{
+    &__text{
       margin: 20px;
       height: 50px;
       width: 804.77px;
     }
-    .chat__fotter__icon{
+    &__icon{
       position: absolute;
       top:34px;
       right: 145.23px;
       color: black;
 
     }
-    .chat__fotter__filesend{
+    &__filesend{
       display: none;
     }
-    .chat__fotter__submit{
+    &__submit{
       margin: 20px 0;
       height: 50px;
       background-color: #38AEF0;
