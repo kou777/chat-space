@@ -1,5 +1,5 @@
 .chat {
-  height: calc(100% - 101px);
+  height: calc(100% - 100px);
   width: calc(100vw - 300px);
   position: absolute;
   min-width: 300px;
@@ -62,7 +62,7 @@
     &__text{
       margin: 20px;
       height: 50px;
-      width: calc(100% - 40px);
+      width: calc(100% - 160px);
     }
     &__icon{
       position: absolute;
