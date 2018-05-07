@@ -31,26 +31,28 @@
     }
 
   }
-  .chat__message{
+  .chat__messages{
     height: 100%;
     background-color: #F8F8FF;
     padding :6px 0 0 40px;
     overflow: scroll;
-    .chat__message1{
-      padding-top: 40px;
-    }
-    h2{
-      float: left;
-    }
-    .chat__message1__date{
-      float: left;
-      padding-left: 10px;
-      font-size: 12px;
-      color:#999999;
-    }
-    .chat__message1__message{
-      clear: both;
-      margin-top: 10px;
+    .chat__message {
+      &__name{
+        padding-top: 40px;
+      }
+      h2{
+        float: left;
+      }
+      &__date{
+        float: left;
+        padding:40px 0 0 10px;
+        font-size: 12px;
+        color:#999999;
+      }
+      &__text{
+        clear: both;
+        margin-top: 10px;
+      }
     }
   }
   .chat__fotter{
