@@ -1,12 +1,6 @@
-.group
-  %h2 神
-  %p  sample
-.group
-  %h2 神
-  %p  sample
-.group
-  %h2 神
-  %p  sample
-.group
-  %h2 神
-  %p  sample
+- current_user.groups.each do |group|
+  .group
+    = link_to group_messages_path(group) do
+      %h2
+        = group.name
+      %p  メッセージはまだありません。
