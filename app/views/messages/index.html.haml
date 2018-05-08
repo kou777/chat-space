@@ -9,7 +9,8 @@
   .chat
     .chat__header
       %h2 sampleグループ
-      %p ryousuke maehira
+      %p
+        = current_user.name
       .edit edit
 
     .chat__messages
