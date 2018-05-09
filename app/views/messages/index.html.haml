@@ -7,13 +7,17 @@
   .side-bar
     = render "shared/side_bar"
   .chat
-    .chat__header
-      %h2 sampleグループ
-      %p
-        = current_user.name
-      .edit edit
+    .header
+      .left-header
+        .left-header__title
+          = @group.name
+        .left-header__members
+          .member
+            = current_user.name
+      .right-header
+        .right-header__button edit
 
-    .chat__messages
+    .messages
       = render @messages
 
     .form

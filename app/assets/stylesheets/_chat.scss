@@ -1,63 +1,72 @@
 .chat {
-  height: calc(100% - 100px);
-  width: calc(100vw - 300px);
-  position: absolute;
-  min-width: 300px;
-  left: 300px;
-  &__header {
-    border:solid 2px #eeeeee;
-    position: relative;
-    h2{
-      font-size: 20px;
-      color: #333;
-      padding: 35px 40px 0px 40px;
-    }
-    p{
-      font-size: 12px;
-      color: $light_gray;
-      padding: 15px 40px 0px 40px;
-    }
-    .edit {
-       height: 40px;
-       border: solid 1px $light_blue;
-       color: $light_blue;
-       padding: 0 20px;
-       text-align: center;
-       line-height: 40px;
-       position: absolute;
-       right: 20px;
-       top: 28px;
-    }
-
-  }
-  &__messages {
-    height: 100%;
-    background-color: #FAFAFA;
-    padding :6px 0 0 40px;
-    overflow: scroll;
-    .chat__message {
-      &__name{
-        padding-top: 40px;
-        color: $black;
-        font-size: 16px;
-        font-weight: bold;
+  width: calc(100% - 300px);
+  float: right;
+  .header {
+    box-sizing: border-box;
+    height: 100px;
+    padding: 0 40px;
+    .left-header {
+      float: left;
+      &__title {
+        color: #333;
+        font-size: 20px;
+        margin-top: 35px;
       }
-      h2{
-        float: left;
-      }
-      &__date{
-        float: left;
-        padding:40px 0 0 10px;
-        font-size: 12px;
+      &__members {
         color: $light_gray;
+        font-size: 12px;
+        margin-top: 15px;
+        .member {
+          display: inline-block;
+          padding-right: 5px;
+        }
       }
-      &__text{
-        clear: both;
-        font-size: 14px;
-        margin-top: 10px;
+    }
+    .right-header {
+      border: 1px solid $light_blue;
+      color: $light_blue;
+      float: right;
+      height: 40px;
+      line-height: 40px;
+      margin-top: 28px;
+      padding: 0 20px;
+      &__button {
+        color: $light_blue;
+        text-decoration: none;
       }
     }
   }
+
+  .messages {
+    background-color: #FAFAFA;
+    box-sizing: border-box;
+    padding: 46px 40px 0;
+    height: 689px;
+    .message {
+      .upper-message {
+        display: flex;
+        &__user-name {
+          color: $black;
+          font-size: 16px;
+          font-weight: bold;
+        }
+        &__date {
+          color: $light_gray;
+          font-size: 12px;
+          padding-left: 10px;
+        }
+      }
+      .lower-message {
+        margin-top: 10px;
+        &__content {
+          color: $black;
+          font-size: 14px;
+          margin-bottom: 40px;
+        }
+      }
+    }
+  }
+
   .form {
     background-color: #DDDDDD;
     box-sizing: border-box;
@@ -93,8 +102,4 @@
       padding: 0 30px;
     }
   }
-}
-
-body {
-  height:  100vh;
 }
