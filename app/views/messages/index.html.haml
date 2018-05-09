@@ -4,8 +4,8 @@
 
     %div チャットグループが作成されました
 
-  .sidebar
-    = render "shared/sidebar"
+  .side-bar
+    = render "shared/side_bar"
   .chat
     .chat__header
       %h2 sampleグループ
@@ -14,7 +14,7 @@
       .edit edit
 
     .chat__messages
-      = render "message"
+      = render @messages
 
     .form
       = form_for [@group, @message] do |f|
