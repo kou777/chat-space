@@ -16,11 +16,11 @@
     .chat__messages
       = render "message"
 
-    .chat__fotter
-      %form
-        %input{type: "text",class: "chat__fotter__text", placeholder: "type a message"}
-        %label
-          %span.chat__fotter__icon
-            =fa_icon "image"
-          %input{type: "file", class: "chat__fotter__filesend"}
-          %input{type: "submit",class: "chat__fotter__submit", value:"send"}
+    .form
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
