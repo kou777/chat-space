@@ -18,7 +18,8 @@
 
     .chat__fotter
       %form
-        %input{type: "text",class: "chat__fotter__text", placeholder: "type a message"}
+        = form_for [@group, @message] do |f|
+          = f.text_field :content, class: 'chat__fotter__text', placeholder: 'type a message'
         %label
           %span.chat__fotter__icon
             =fa_icon "image"
