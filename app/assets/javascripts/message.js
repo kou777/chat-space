@@ -1,12 +1,12 @@
 $(function(){
 
   function buildHTML(message){
-    message.image == null ? image_html = `` : image_html = `<div class = "lower-message__content"><img src ="${message.image.url}" width="120" height="180"</div>`
+    message.image.url == null ? image_html = `` : image_html = `<p class = "lower-message__image"><img src ="${message.image.url}" width="120" height="180"</p>`
     var html =
   `<div class='message' id='message.id'>
     <div class='upper-message'>
       <div class='upper-message__user-name'>
-        ${message.name}
+        ${message.user_name}
       </div>
       <div class='upper-message__date'>
         ${message.created_at}
@@ -14,9 +14,9 @@ $(function(){
     </div>
     <div class='lower-meesage'>
       <p class='lower-message__content'>
-        ${message.text}
-        ${image_html}
+        ${message.content}
       </p>
+      ${image_html}
     </div>
   </div>`
 
@@ -25,7 +25,6 @@ $(function(){
 
   $('#new_message').on('submit', function(e) {
     e.preventDefault();
-    //console.log(this)
     var formData = new FormData(this);
     var url = $(this).attr('action');
     $.ajax({
