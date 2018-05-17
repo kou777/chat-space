@@ -18,6 +18,7 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    @users = @group.users
   end
 
   def update
@@ -31,6 +32,7 @@ class GroupsController < ApplicationController
   private
 
   def group_params
+    params[:group][:user_ids].unshift(current_user.id)
     params.require(:group).permit(:name, { :user_ids => [] })
   end
 
