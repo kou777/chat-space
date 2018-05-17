@@ -30,6 +30,7 @@ function addGroupUser(id, name){
   $(function() {
     $("#user-search-field").on("keyup", function() {
       var input = $("#user-search-field").val();
+      if (!input == "") {
       $.ajax({
         type: 'GET',
         url: '/users',
@@ -50,6 +51,7 @@ function addGroupUser(id, name){
     .fail(function(){
       alert('ユーザー検索に失敗しました');
       });
+      }
     });
 
 $("#user-search-result").on('click','.user-search-add',function(){
