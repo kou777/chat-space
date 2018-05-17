@@ -61,7 +61,7 @@ $("#user-search-result").on('click','.user-search-add',function(){
     addGroupUser(userId, userName);
   });
 
-$("#chat-group-user-8 a").on('click',function(){
+$("#js-chat-member").on('click',function(){
     $(this).parent().remove();
   });
 
