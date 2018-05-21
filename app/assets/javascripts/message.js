@@ -28,8 +28,6 @@ $(document).on('turbolinks:load', function() {
   $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
   }
 
-
-
   $('#new_message').on('submit', function(e) {
     e.preventDefault();
     var formData = new FormData(this);
@@ -72,10 +70,10 @@ function pageReload(){
         for(var i = old_num; i < new_num; i++) {
           html += buildHTML(data.messages[i]);
         };
-        if(old_num < new_num){
-        $('.messages').append(html);
-        moveToBottom();
-      }
+          if(old_num < new_num){
+          $('.messages').append(html);
+          moveToBottom();
+         }
       })
       .fail(function() {
         alert('メッセージを読み込めませんでした。');
