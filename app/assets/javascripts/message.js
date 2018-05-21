@@ -1,15 +1,15 @@
-$(function(){
+$(document).on('turbolinks:load', function() {
 
   function buildHTML(message){
     message.image.url == null ? image_html = `` : image_html = `<p class = "lower-message__image"><img src ="${message.image.url}" width="120" height="180"</p>`
     var html =
-  `<div class='message' id='message.id'>
+  `<div class='message' data-message-id="${message.id}">
     <div class='upper-message'>
       <div class='upper-message__user-name'>
-        ${message.user_name}
+        ${message.name}
       </div>
       <div class='upper-message__date'>
-        ${message.created_at}
+        ${message.date}
       </div>
     </div>
     <div class='lower-meesage'>
@@ -21,6 +21,10 @@ $(function(){
   </div>`
 
     return html;
+  }
+
+  function moveToBottom() {
+  $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
   }
 
   $('#new_message').on('submit', function(e) {
@@ -40,7 +44,7 @@ $(function(){
       $('.messages').append(html);
       $('form')[0].reset();
       $('.form__submit').prop("disabled", false);
-      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+      moveToBottom();
     })
     .fail(function(){
       $('.form__message').val("");
@@ -49,4 +53,28 @@ $(function(){
       alert('error!');
     })
   });
+
+  $(function(){
+    setInterval(update, 5000);
+   });
+
+    function update(){
+    var message_id = $(".message").last().data("message-id");
+    $.ajax({
+      url: location.href,
+      type: 'GET',
+      data: {
+        id: message_id },
+      dataType: 'json'
+    })
+    .done(function(data){
+     data.forEach(function(newMessage){
+      var html = buildHTML(newMessage);
+      $('.messages').append(html)
+      $('form')[0].reset();
+      $(".form__submit").attr('disabled', false);
+      moveToBottom();
+      });
+    });
+    }
 });
