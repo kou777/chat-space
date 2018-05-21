@@ -1,4 +1,5 @@
-$(function(){
+$(document).on('turbolinks:load', function() {
+  pageReload();
 
   function buildHTML(message){
     message.image.url == null ? image_html = `` : image_html = `<p class = "lower-message__image"><img src ="${message.image.url}" width="120" height="180"</p>`
@@ -6,10 +7,10 @@ $(function(){
   `<div class='message' id='message.id'>
     <div class='upper-message'>
       <div class='upper-message__user-name'>
-        ${message.user_name}
+        ${message.name}
       </div>
       <div class='upper-message__date'>
-        ${message.created_at}
+        ${message.date}
       </div>
     </div>
     <div class='lower-meesage'>
@@ -22,6 +23,12 @@ $(function(){
 
     return html;
   }
+
+  function moveToBottom() {
+  $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+  }
+
+
 
   $('#new_message').on('submit', function(e) {
     e.preventDefault();
@@ -40,7 +47,7 @@ $(function(){
       $('.messages').append(html);
       $('form')[0].reset();
       $('.form__submit').prop("disabled", false);
-      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+      moveToBottom();
     })
     .fail(function(){
       $('.form__message').val("");
@@ -49,4 +56,31 @@ $(function(){
       alert('error!');
     })
   });
+
+function pageReload(){
+  if (window.location.href.match(/messages/)) {
+    setInterval(function() {
+      $.ajax({
+        type: 'GET',
+        url: './messages',
+        dataType: 'json'
+      })
+      .done(function(data) {
+        var old_num = $('.message').length;
+        var new_num = data.messages.length;
+        var html = '';
+        for(var i = old_num; i < new_num; i++) {
+          html += buildHTML(data.messages[i]);
+        };
+        if(old_num < new_num){
+        $('.messages').append(html);
+        moveToBottom();
+      }
+      })
+      .fail(function() {
+        alert('メッセージを読み込めませんでした。');
+      })
+    },5000);
+  };
+ }
 });
