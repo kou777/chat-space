@@ -66,14 +66,12 @@ $(document).on('turbolinks:load', function() {
       data: {
         id: message_id },
       dataType: 'json'
-
     })
     .done(function(data){
      data.forEach(function(newMessage){
       var html = buildHTML(newMessage);
       $('.messages').append(html)
-      $('.form__message').val('');
-      $('.hidden').val('');
+      $('form')[0].reset();
       $(".form__submit").attr('disabled', false);
       moveToBottom();
       });
