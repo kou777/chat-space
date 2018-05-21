@@ -1,10 +1,9 @@
 $(document).on('turbolinks:load', function() {
-  pageReload();
 
   function buildHTML(message){
     message.image.url == null ? image_html = `` : image_html = `<p class = "lower-message__image"><img src ="${message.image.url}" width="120" height="180"</p>`
     var html =
-  `<div class='message' id='message.id'>
+  `<div class='message' data-message-id="${message.id}">
     <div class='upper-message'>
       <div class='upper-message__user-name'>
         ${message.name}
@@ -55,30 +54,29 @@ $(document).on('turbolinks:load', function() {
     })
   });
 
-function pageReload(){
-  if (window.location.href.match(/messages/)) {
-    setInterval(function() {
-      $.ajax({
-        type: 'GET',
-        url: './messages',
-        dataType: 'json'
-      })
-      .done(function(data) {
-        var old_num = $('.message').length;
-        var new_num = data.messages.length;
-        var html = '';
-        for(var i = old_num; i < new_num; i++) {
-          html += buildHTML(data.messages[i]);
-        };
-          if(old_num < new_num){
-          $('.messages').append(html);
-          moveToBottom();
-         }
-      })
-      .fail(function() {
-        alert('メッセージを読み込めませんでした。');
-      })
-    },5000);
-  };
- }
+  $(function(){
+    setInterval(update, 5000);
+   });
+
+    function update(){
+    var message_id = $(".message").last().data("message-id");
+    $.ajax({
+      url: location.href,
+      type: 'GET',
+      data: {
+        id: message_id },
+      dataType: 'json'
+
+    })
+    .done(function(data){
+     data.forEach(function(newMessage){
+      var html = buildHTML(newMessage);
+      $('.messages').append(html)
+      $('.form__message').val('');
+      $('.hidden').val('');
+      $(".form__submit").attr('disabled', false);
+      moveToBottom();
+      });
+    });
+    }
 });
